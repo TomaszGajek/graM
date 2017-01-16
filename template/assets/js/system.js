@@ -228,7 +228,8 @@ function QuestionAdd(btn){
 }
 
 
-function Communicates(content,type){
+function Communicates(content,type,hide ){
+    hide = true;
     var communicate = '';
         communicate += '<div style="display: none;" class="Communicate ' + type + '">';
         communicate+='<a class="Close">X</a>';
@@ -249,5 +250,17 @@ function Communicates(content,type){
                    });
            
         });
+        
+        if(hide===true){
+            $('.Communicate')
+                   .delay(2000)
+                   .fadeOut(500)
+                   .delay(500)
+                   .queue(function(){
+                       $(this.remove());
+                   });
+           
+        
+        }
         
 }
